@@ -1,0 +1,189 @@
+/* GlowUp — beauty & skincare storefront */
+:root{
+  --ink:#2a211f;          /* espresso */
+  --muted:#7b6e68;
+  --bg:#faf7f3;           /* ivory */
+  --card:#ffffff;
+  --blush:#f4e9e5;
+  --line:#e9e0d8;
+  --primary:#8a4a4e;      /* rosewood */
+  --primary-dark:#6f3a3e;
+  --gold:#a98852;
+  --dark:#2a211f;
+  --ok:#4f7a5c;--warn:#b98a2e;--bad:#a8473f;
+  --serif:"Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);font-size:15px;line-height:1.55;background:var(--bg);color:var(--ink);padding-bottom:72px;-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:none}
+img{max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--ink);letter-spacing:.01em;line-height:1.2}
+h1{font-size:2rem;margin:.5em 0 .4em}
+h2{font-size:1.5rem;margin:1.2em 0 .5em}
+h3{font-size:1.15rem}
+small{color:var(--muted)}
+
+/* ---------- header ---------- */
+.topbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;background:rgba(250,247,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 18px}
+.brand{color:var(--ink);font-family:var(--serif);font-weight:600;font-size:1.65rem;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.brand img{width:22px;height:22px}
+.menu-btn{background:none;border:0;color:var(--ink);font-size:1.5rem;cursor:pointer;line-height:1;padding:4px}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.15em;flex:none}
+.ic.fill{fill:currentColor}
+
+.side-menu{position:fixed;top:0;right:-290px;width:280px;height:100%;background:var(--ink);padding:72px 0 0;z-index:30;transition:right .3s;overflow:auto}
+.side-menu.open{right:0}
+.side-menu a,.side-menu a:visited{display:block;color:#f4ece6;padding:15px 28px;border-bottom:1px solid rgba(255,255,255,.08);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+.side-menu a:hover{background:rgba(255,255,255,.06);color:#e3cb98}
+
+.container{max-width:1040px;margin:0 auto;padding:18px}
+
+/* ---------- bottom nav ---------- */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid var(--line);z-index:20;padding-bottom:env(safe-area-inset-bottom)}
+.bottom-nav a{flex:1;text-align:center;padding:9px 0 8px;color:var(--muted);font-size:1.2rem;display:flex;flex-direction:column;align-items:center}
+.bottom-nav a:hover{color:var(--primary)}
+.bottom-nav a span{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.bottom-nav a .ic{width:1.4rem;height:1.4rem}
+.badge{background:var(--primary);color:#fff;border-radius:10px;padding:0 6px;margin-left:3px;font-size:.62rem;letter-spacing:0}
+
+/* ---------- hero ---------- */
+.banner{position:relative;margin:0 0 26px;min-height:510px;background:#f1e6df;overflow:hidden}
+.track{display:flex;height:100%;min-height:inherit;position:absolute;inset:0;transition:transform 1s cubic-bezier(.77,0,.18,1)}
+.slide{flex:0 0 100%;display:flex;flex-direction:column;position:relative;min-height:inherit;overflow:hidden}
+.slide.a{background:#f1e6df}
+.slide.b{background:#ebe7e1}
+.slide .pic{flex:0 0 46%;background-size:cover;background-repeat:no-repeat;transform:scale(1.12);transition:transform 7s cubic-bezier(.2,.6,.2,1)}
+.slide.active .pic{transform:scale(1)}
+.slide .picwrap{overflow:hidden}
+.slide .copy{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:22px 24px}
+.slide .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--primary);margin-bottom:10px}
+.slide h2{font-size:2rem;margin:0 0 8px;font-weight:500}
+.slide p{margin:0 0 18px;color:var(--muted);max-width:420px}
+.arrow{position:absolute;top:calc(23% - 16px);z-index:5;width:36px;height:36px;border:0;background:none;color:var(--ink);font-size:2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;filter:drop-shadow(0 0 6px rgba(255,255,255,.8));transition:color .2s,transform .2s}
+.arrow .ic{width:2rem;height:2rem;stroke-width:1.5}
+.arrow:hover{color:var(--primary)}
+.arrow.prev:hover{transform:translateX(-2px)}.arrow.next:hover{transform:translateX(2px)}
+.arrow.prev{left:12px}.arrow.next{right:12px}
+
+/* ---------- product cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:0 10px 28px rgba(60,40,35,.10);transform:translateY(-2px)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s;background:#f4f1ec}
+.card:hover img{transform:scale(1.04)}
+.card>a:first-child{display:block;overflow:hidden}
+.card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:3px;flex:1}
+.card h3{margin:2px 0;font-size:1.12rem;font-weight:600}
+.card h3 a{color:var(--ink)}
+.card .body>span{font-size:.78rem;letter-spacing:.04em}
+.card .row{flex-direction:column;align-items:stretch;margin-top:auto!important;padding-top:10px}
+.price{color:var(--primary);font-weight:600;letter-spacing:.02em}
+.stars{color:var(--gold);display:inline-flex;gap:2px;font-size:.85rem;vertical-align:middle}
+
+/* ---------- panels, forms, buttons ---------- */
+.panel{background:var(--card);border:1px solid var(--line);padding:18px;margin-bottom:16px}
+.btn,input[type=submit],input[type=button],button.btn{display:inline-block;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:2px;padding:11px 20px;font-family:var(--sans);font-size:.76rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-align:center;transition:background .2s,color .2s,border-color .2s}
+.btn:hover,input[type=submit]:hover,input[type=button]:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.alt:hover{background:var(--ink);color:#fff}
+.btn.danger{background:var(--bad);border-color:var(--bad)}
+.btn.small{padding:8px 10px;font-size:.66rem;letter-spacing:.1em}
+input:not([type]),input[type=text],input[type=password],input[type=email],input[type=number],select,textarea{width:100%;padding:11px 12px;margin:4px 0 10px;border:1px solid var(--line);border-radius:2px;font-family:var(--sans);font-size:.95rem;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(138,74,78,.12)}
+label{font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.alert{padding:11px 14px;margin:10px 0;display:block;border-left:3px solid}
+.alert.ok{background:#eef4ef;color:#2f5a3d;border-color:var(--ok)}
+.alert.error{background:#f8ecea;color:#7d2f29;border-color:var(--bad)}
+.err{color:var(--bad);font-size:.85rem}
+.status{padding:2px 10px;border-radius:2px;color:#fff;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.status.Pending{background:var(--warn)}.status.Delivery{background:var(--primary)}.status.Delivered{background:var(--ok)}.status.Cancelled{background:var(--bad)}
+.row{display:flex;gap:10px;align-items:center}
+.row>*{flex:1}
+
+/* ---------- tables / cart / stats ---------- */
+table.data{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line)}
+table.data th{background:var(--blush);color:var(--ink);padding:10px;text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+table.data td{padding:10px;border-bottom:1px solid var(--line)}
+.scroll{overflow-x:auto}
+.cartrow{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);padding:10px;margin-bottom:10px}
+.cartrow img{width:76px;aspect-ratio:1/1;object-fit:cover}
+.cartrow .qty{width:64px;text-align:center}
+.stat{display:inline-block;background:#fff;border:1px solid var(--line);padding:16px 22px;margin:4px;min-width:140px;text-align:center}
+.stat b{display:block;font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--primary)}
+
+#pnlProduct img,.panel>img{width:100%;max-width:460px;aspect-ratio:1/1;object-fit:cover;display:block;margin:0 auto 12px}
+
+@media(min-width:700px){
+  .grid{grid-template-columns:repeat(4,1fr);gap:20px}
+  body{padding-bottom:0}.bottom-nav{display:none}
+  .banner{min-height:400px}
+  .slide{flex-direction:row}
+  .slide .pic{flex:0 0 50%;order:2}
+  .slide .copy{flex:1;padding:40px 56px}
+  .slide h2{font-size:3rem}
+  .arrow{top:calc(50% - 16px)}
+}
+
+/* ---------- motion ---------- */
+.slide .copy>*{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.slide.active .copy>*{opacity:1;transform:none}
+.slide.active .copy>:nth-child(1){transition-delay:.55s}
+.slide.active .copy>:nth-child(2){transition-delay:.7s}
+.slide.active .copy>:nth-child(3){transition-delay:.85s}
+.slide.active .copy>:nth-child(4){transition-delay:1s}
+.progress{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(42,33,31,.08);z-index:4}
+.progress i{display:block;height:100%;width:100%;background:var(--primary);transform:scaleX(0);transform-origin:left}
+.progress.run i{animation:fill 5s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.card.reveal.in{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
+.btn,.arrow{will-change:transform}
+/* page in / out */
+main.container{animation:pageIn .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+main.container.leaving{opacity:0;transform:translateY(-8px);transition:opacity .25s ease,transform .25s ease}
+/* side menu: items glide in one after another */
+.side-menu a,.side-menu .aspNetDisabled{opacity:0;transform:translateX(18px);transition:background .2s,color .2s,opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.side-menu.open a{opacity:1;transform:none}
+.side-menu.open a:nth-child(1){transition-delay:.10s,0s,.10s,.10s}
+.side-menu.open a:nth-child(2){transition-delay:.15s,0s,.15s,.15s}
+.side-menu.open a:nth-child(3){transition-delay:.20s,0s,.20s,.20s}
+.side-menu.open a:nth-child(4){transition-delay:.25s,0s,.25s,.25s}
+.side-menu.open a:nth-child(5){transition-delay:.30s,0s,.30s,.30s}
+.side-menu.open a:nth-child(6){transition-delay:.35s,0s,.35s,.35s}
+.side-menu.open a:nth-child(n+7){transition-delay:.40s,0s,.40s,.40s}
+/* bottom nav + cart badge */
+.bottom-nav a .ic{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.bottom-nav a:hover .ic{transform:translateY(-3px)}
+.bottom-nav a:active .ic{transform:scale(.82)}
+.badge{display:inline-block;animation:pop .6s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.menu-btn .ic{transition:transform .3s ease}
+.menu-btn:active .ic{transform:scale(.85)}
+.btn:active,input[type=submit]:active{transform:translateY(1px)}
+.cartrow,.stat,table.data tr{transition:background .2s}
+table.data tr:hover td{background:#fbf7f3}
+@media(prefers-reduced-motion:reduce){
+  main.container,.badge,.side-menu a{animation:none!important;transition:none!important}
+  .side-menu a{opacity:1;transform:none}
+
+  .track,.slide .pic,.slide .copy>*,.reveal{transition:none!important;animation:none!important}
+  .slide .copy>*,.reveal{opacity:1;transform:none}
+  .progress{display:none}
+}
+/* payment cards + demo gateway */
+.status.Unpaid{background:var(--bad)}
+.paycards ul{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.paycards li{position:relative;border:1px solid var(--line);background:#fff;padding:12px 12px 12px 14px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.paycards li:has(input:checked){border-color:var(--primary);box-shadow:0 0 0 1px var(--primary) inset;background:#fcfcfa}
+.paycards label{font-size:.9rem;letter-spacing:0;text-transform:none;font-weight:600;color:var(--ink);cursor:pointer;flex:1}
+.paycards input{margin:0}
+.gw{max-width:420px;margin:0 auto;border:1px solid var(--line);background:#fff}
+.gw .gw-head{padding:16px 18px;color:#fff;font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.03em}
+.gw .gw-body{padding:18px}
+.gw .amt{font-size:1.5rem;font-weight:600;margin:4px 0 12px}
+.gw.esewa .gw-head{background:#60bb46}.gw.khalti .gw-head{background:#5c2d91}.gw.ips .gw-head{background:#0b5ba8}
+.gw.esewa input[type=submit]{background:#60bb46;border-color:#60bb46}.gw.khalti input[type=submit]{background:#5c2d91;border-color:#5c2d91}.gw.ips input[type=submit]{background:#0b5ba8;border-color:#0b5ba8}
+.demo-note{font-size:.78rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:14px;padding-top:10px}

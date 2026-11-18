@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GlowUp - ReadMe</title>
+<style>body{font-family:Arial,sans-serif;max-width:800px;margin:20px auto;padding:0 14px;line-height:1.5}table{border-collapse:collapse}td,th{border:1px solid #999;padding:6px 12px}code{background:#eee;padding:2px 4px}</style>
+</head>
+<body>
+<h1>GlowUp – A Mobile-Optimized E-Commerce Website for Beauty and Skincare Products</h1>
+<p>CT081-3-3 Mobile &amp; Web Multimedia - Individual Assignment. ASP.NET Web Forms (.NET Framework 4.8), SQL Server LocalDB/Express, HTML5/CSS3/JavaScript.</p>
+
+<h2>1. Test accounts</h2>
+<table>
+<tr><th>Role</th><th>Username</th><th>Password</th></tr>
+<tr><td>Admin</td><td>admin</td><td>Admin@123</td></tr>
+<tr><td>Member</td><td>member</td><td>Member@123</td></tr>
+</table>
+<p>Coupon codes: <code>WELCOME10</code> (10%), <code>FLASH20</code> (20%). Any 16-digit card number, expiry like 12/30 and any 3-digit CVV are accepted (payment verification is not required).</p>
+
+<h2>2. Setup &amp; configuration</h2>
+<ol>
+<li>Install Visual Studio 2019/2022 (ASP.NET workload) - this includes SQL Server Express LocalDB.</li>
+<li>Choose <b>File &gt; Open &gt; Web Site</b> and select this folder (<code>MobileShop</code>).</li>
+<li>Press <b>Ctrl+F5</b>. On first run <code>Global.asax</code> automatically creates <code>App_Data\ShopDB.mdf</code> and runs <code>App_Data\Schema.sql</code> (tables, categories, sample products, test accounts). No manual database setup is required.</li>
+<li>The connection string (<code>ShopDB</code>) is stored in <code>Web.config</code> and uses <code>AttachDbFilename=|DataDirectory|\ShopDB.mdf</code>. If you use SQL Server Express instead of LocalDB, change <code>Data Source</code> to <code>.\SQLEXPRESS</code>.</li>
+<li>Email: messages are written as .eml files to <code>C:\Temp\GlowUpMail</code> (create this folder, or edit <code>mailSettings</code> in Web.config). Every email is also stored as an in-app notification on the Orders page.</li>
+<li>To test on a phone, use the browser's device toolbar (F12) or browse to the PC's IP address.</li>
+</ol>
+
+<h2>3. Page map</h2>
+<ul>
+<li><b>Public:</b> Default (catalog, search, sort), ProductDetail, Register, Login, Feedback, Error</li>
+<li><b>Member only (Member/):</b> Cart (current), Checkout (payment + email), Orders (history, tracking, cancel), Rate (ratings), Profile, Wishlist</li>
+<li><b>Admin only (Admin/):</b> Default (dashboard, low-stock, sales, feedback), Products (CRUD), Categories (CRUD), Orders (Pending / Delivery / Delivered / Cancelled), Users (RUD)</li>
+</ul>
+
+<h2>4. Quick walkthrough</h2>
+<ol>
+<li>Browse the catalog as a guest, then Register or login as <code>member</code>.</li>
+<li>Add products to the cart (or save to wishlist), apply <code>WELCOME10</code>, and Checkout.</li>
+<li>Login as <code>admin</code>: open Manage Orders, press <i>Ship</i> then <i>Mark delivered</i>.</li>
+<li>Login again as the member: open Orders and press <i>Rate</i> on a delivered item.</li>
+</ol>
+
+<h2>5. Extra features</h2>
+<p>Wishlist, reward points and member badges, discount coupons, low-stock alerts, related-product recommendations, in-app notifications, auto-rotating promo banner, admin sales dashboard.</p>
+<h2>Photo credits</h2>
+<p>Product photos from <a href="https://unsplash.com">Unsplash</a> (Unsplash License): serum &ndash; Muhammad Sulyman; moisturizer &ndash; Eveling Salazar; sunscreen &ndash; Tuan Nguyen; cleanser &ndash; Ela De Pure; lipstick &ndash; Jen Vazquez; foundation &ndash; Kelsey Curtis; hair oil &ndash; Kadarius Seegars; perfume &ndash; Kier in Sight Archives.</p>
+</body>
+</html>
